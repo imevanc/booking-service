@@ -26,14 +26,14 @@ public class EventRepository {
                     new Venue(202, "Sea View Hotel", "Beach Boulevard 863", "Los Angeles", "USA"),
                     LocalDate.of(2024, 2, 29), LocalDate.of(2024, 2, 29)));
 
-    public List<Event> getByOrganizerId(int organizerId) {
+    public List<Event> findByOrganizerId(int organizerId) {
         return events
                 .stream()
                 .filter(event -> event.organizer().id() == organizerId)
                 .toList();
     }
 
-    public Optional<Event> getById(int id) {
+    public Optional<Event> findById(int id) {
         return events
                 .stream()
                 .filter(event -> event.id() == id)

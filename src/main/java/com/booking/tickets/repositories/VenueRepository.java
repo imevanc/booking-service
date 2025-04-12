@@ -14,7 +14,7 @@ public class VenueRepository {
             new Venue(203, "Venue 3", "Location 3", "City 3", "Country 3")
     );
 
-    public Optional<Venue> getById(int id) {
+    public Optional<Venue> findById(int id) {
         return venues.stream()
                 .filter(venue -> venue.id() == id)
                 .findFirst();
