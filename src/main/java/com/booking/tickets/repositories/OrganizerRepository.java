@@ -13,7 +13,7 @@ public class OrganizerRepository {
             new Organizer(103, "Organizer 3", "Description 3")
     );
 
-    public List<Organizer> getAll() {
+    public List<Organizer> findAll() {
         return organizers;
     }
 }
