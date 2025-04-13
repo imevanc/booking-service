@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class RegistrationRepository {
+public class RegistrationRepository implements JpaRepository<Registration, Integer> {
 
     private static final AtomicInteger ID_GENERATOR = new AtomicInteger();
 
