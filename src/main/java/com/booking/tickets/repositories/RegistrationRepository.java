@@ -3,6 +3,7 @@ package com.booking.tickets.repositories;
 import com.booking.tickets.registration.Registration;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -11,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class RegistrationRepository implements JpaRepository<Registration, Integer> {
+public class RegistrationRepository {
 
     private static final AtomicInteger ID_GENERATOR = new AtomicInteger();
 
@@ -50,6 +51,10 @@ public class RegistrationRepository implements JpaRepository<Registration, Integ
         } else {
             throw new NoSuchElementException("Registration with ticket code " + ticketCode + " not found");
         }
+    }
+
+    public List<Registration> findAll() {
+        return List.copyOf(registrationsByTicketCode.values());
     }
 
     public void deleteByTicketCode(String ticketCode) {
