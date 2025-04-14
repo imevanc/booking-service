@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public class EventRepository {
 
-    private final List<Event> events = List.of(
+    public final List<Event> events = List.of(
             new Event(501, "Globomantics Tech Conference",
                     new Organizer(101, "Globomantics", "Globomantics Technology Corporation"),
                     new Venue(201, "Globomatics Main Office", "Test Street 325", "New York", "USA"),
@@ -38,5 +38,9 @@ public class EventRepository {
                 .stream()
                 .filter(event -> event.id() == id)
                 .findAny();
+    }
+
+    public List<Event> findAll() {
+        return events;
     }
 }

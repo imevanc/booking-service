@@ -31,6 +31,11 @@ public class EventController {
     }
 
     @GetMapping(path = "/events")
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
+    }
+
+    @GetMapping(path = "/eventsByOrganizerId")
     public List<Event> getEventsByOrganizerId(@RequestParam("organizerId") int organizerId) {
         return eventRepository.findByOrganizerId(organizerId);
     }
@@ -46,5 +51,4 @@ public class EventController {
     public List<Product> getProductsByEventId(@RequestParam("eventId") int eventId) {
         return productRepository.findByEventId(eventId);
     }
-
 }
